@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patryk Starzycki</title>
+<meta name="description" content="Patryk Starzycki — doświadczenie zawodowe, osiągnięcia, kompetencje i kontakt.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--primary:#6366f1;--primary-light:#818cf8;--accent:#06b6d4;--accent-2:#8b5cf6;
+--bg-dark:#0a0a0f;--bg-card:#12121a;--bg-card-hover:#1a1a2e;--bg-section:#0f0f17;
+--text-primary:#f1f5f9;--text-secondary:#94a3b8;--text-muted:#64748b;--border:#1e293b;
+--gradient-1:linear-gradient(135deg,#6366f1 0%,#06b6d4 100%);
+--shadow-glow:0 0 40px rgba(99,102,241,0.15);--shadow-card:0 4px 24px rgba(0,0,0,0.4);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background-color:var(--bg-dark);color:var(--text-primary);line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg-dark)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:4px}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;transition:all 0.4s ease;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,15,0.8);border-bottom:1px solid transparent}
+.navbar.scrolled{padding:0.65rem 2rem;border-bottom:1px solid var(--border);background:rgba(10,10,15,0.95)}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+.nav-links{display:flex;list-style:none;gap:1.5rem}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.3s ease;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--text-primary)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gradient-1);transition:width 0.3s ease;border-radius:2px}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-toggle{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.nav-toggle span{width:25px;height:2px;background:var(--text-primary);transition:0.3s;border-radius:2px}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:2rem}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(99,102,241,0.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(6,182,212,0.06) 0%,transparent 50%);animation:bgFloat 20s ease-in-out infinite}
+@keyframes bgFloat{0%,100%{transform:translate(0,0)}33%{transform:translate(2%,-2%)}66%{transform:translate(-1%,1%)}}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.03) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:920px}
+.hero-photo-wrapper{margin-bottom:2rem;display:flex;justify-content:center}
+.hero-photo{width:165px;height:165px;border-radius:50%;object-fit:cover;border:3px solid transparent;background-origin:border-box;background-clip:content-box,border-box;background-image:linear-gradient(var(--bg-dark),var(--bg-dark)),var(--gradient-1);box-shadow:var(--shadow-glow);transition:transform 0.4s ease,box-shadow 0.4s ease}
+.hero-photo:hover{transform:scale(1.05);box-shadow:0 0 60px rgba(99,102,241,0.3)}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1.2rem;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);border-radius:50px;font-size:0.85rem;color:var(--primary-light);margin-bottom:1.5rem;animation:fadeInUp 0.8s ease 0.2s both}
+.hero-badge .dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,6vw,4.7rem);font-weight:800;line-height:1.05;margin-bottom:1rem;animation:fadeInUp 0.8s ease 0.4s both}
+.hero h1 .gradient-text{background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle{font-size:clamp(1rem,2.3vw,1.2rem);color:var(--text-secondary);max-width:700px;margin:0 auto 2rem;animation:fadeInUp 0.8s ease 0.6s both}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeInUp 0.8s ease 0.8s both}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:12px;font-size:0.95rem;font-weight:600;text-decoration:none;transition:all 0.3s ease;cursor:pointer;border:none}
+.btn-primary{background:var(--gradient-1);color:white;box-shadow:0 4px 20px rgba(99,102,241,0.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(99,102,241,0.4)}
+.btn-outline{background:transparent;color:var(--text-primary);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--primary);background:rgba(99,102,241,0.05);transform:translateY(-2px)}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;animation:fadeInUp 0.8s ease 1s both}
+.stat{text-align:center;min-width:130px}
+.stat-number{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:0.2rem}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+section{padding:6rem 2rem;position:relative}
+.section-container{max-width:1100px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-label{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--primary-light);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:1rem}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:1rem}
+.section-desc{color:var(--text-secondary);max-width:700px;margin:0 auto;font-size:1.02rem}
+.about{background:var(--bg-section)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--text-secondary);margin-bottom:1.4rem;font-size:1.03rem}
+.about-text .highlight{color:var(--text-primary);font-weight:600}
+.ancestry-box{margin-top:0.5rem;margin-bottom:1.4rem;padding:1.4rem 1.6rem;background:linear-gradient(135deg,rgba(99,102,241,0.07) 0%,rgba(6,182,212,0.05) 100%);border:1px solid rgba(99,102,241,0.2);border-radius:16px;position:relative;overflow:hidden}
+.ancestry-box::before{content:'🌳';position:absolute;right:1.2rem;top:1rem;font-size:3rem;opacity:0.12}
+.ancestry-box .ancestry-label{font-size:0.75rem;color:var(--primary-light);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:0.5rem}
+.ancestry-box p{color:var(--text-secondary);font-size:0.95rem;margin-bottom:0;line-height:1.65}
+.ancestry-box .ancestry-highlight{color:var(--text-primary);font-weight:600}
+.about-info{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-top:2rem}
+.info-item{padding:1rem;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}
+.info-item .label{font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.3rem}
+.info-item .value{font-weight:600;color:var(--text-primary);font-size:0.95rem}
+.about-image-area{display:flex;justify-content:center;align-items:flex-start}
+.about-visual{width:100%;max-width:400px;aspect-ratio:4/5;border-radius:20px;background:var(--bg-card);border:1px solid var(--border);overflow:hidden}
+.about-visual img{width:100%;height:100%;object-fit:cover}
+.about-visual .placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-muted);gap:0.5rem}
+.about-visual .placeholder i{font-size:3rem;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.skills{background:var(--bg-dark)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.skill-card{padding:2rem;background:var(--bg-card);border-radius:16px;border:1px solid var(--border);transition:all 0.4s ease;position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-1);transform:scaleX(0);transition:transform 0.4s ease}
+.skill-card:hover{border-color:rgba(99,102,241,0.3);transform:translateY(-4px);box-shadow:var(--shadow-glow)}
+.skill-card:hover::before{transform:scaleX(1)}
+.skill-icon{width:50px;height:50px;border-radius:12px;background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--primary-light);margin-bottom:1.2rem}
+.skill-card h3{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
+.skill-card p{color:var(--text-secondary);font-size:0.92rem}
+.achievements{background:var(--bg-section)}
+.achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+.achievement-card{padding:1.7rem;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;transition:all 0.3s ease;position:relative;overflow:hidden}
+.achievement-card:hover{transform:translateY(-4px);border-color:rgba(99,102,241,0.3);box-shadow:var(--shadow-glow)}
+.achievement-card::before{content:'';position:absolute;inset:0 auto auto 0;width:100%;height:3px;background:var(--gradient-1)}
+.achievement-number{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:800;line-height:1;margin-bottom:0.8rem;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.achievement-title{font-size:1rem;font-weight:700;margin-bottom:0.4rem}
+.achievement-card p{color:var(--text-secondary);font-size:0.88rem;line-height:1.6}
+.experience{background:var(--bg-dark)}
+.timeline{position:relative;max-width:850px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:30px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--primary),var(--accent),var(--accent-2),var(--primary))}
+.timeline-item{position:relative;padding-left:75px;padding-bottom:3rem}
+.timeline-dot{position:absolute;left:22px;top:8px;width:18px;height:18px;border-radius:50%;background:var(--gradient-1);border:3px solid var(--bg-dark);z-index:1;box-shadow:0 0 15px rgba(99,102,241,0.4)}
+.timeline-item.current .timeline-dot{width:22px;height:22px;left:20px;top:6px;animation:dotPulse 2s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 15px rgba(99,102,241,0.4)}50%{box-shadow:0 0 30px rgba(99,102,241,0.7)}}
+.timeline-date{font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:0.3rem;letter-spacing:0.5px}
+.timeline-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:all 0.3s ease}
+.timeline-card:hover{border-color:rgba(99,102,241,0.3);box-shadow:var(--shadow-glow);transform:translateX(4px)}
+.timeline-card .company{font-size:0.86rem;color:var(--accent);font-weight:500;margin-bottom:0.2rem}
+.timeline-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.8rem}
+.timeline-card p{color:var(--text-secondary);font-size:0.92rem;line-height:1.65}
+.results{margin-top:1rem;padding-left:1.15rem}
+.results li{margin-bottom:0.35rem;color:var(--text-secondary);font-size:0.88rem;line-height:1.55}
+.results li::marker{color:var(--primary-light)}
+.tag-list{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
+.tag{padding:0.3rem 0.8rem;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.15);border-radius:8px;font-size:0.75rem;color:var(--primary-light);font-weight:500}
+.timeline-item.current .timeline-card{border-color:rgba(99,102,241,0.3);background:linear-gradient(135deg,var(--bg-card) 0%,rgba(99,102,241,0.05) 100%)}
+.gallery{background:var(--bg-section)}
+.gallery-section-label{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:1.2rem;margin-top:3rem;padding-left:0.2rem;display:flex;align-items:center;gap:0.7rem}
+.gallery-section-label::before{content:'';display:inline-block;width:4px;height:22px;background:var(--gradient-1);border-radius:2px}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.gallery-card{border-radius:16px;overflow:hidden;background:var(--bg-card);border:1px solid var(--border);transition:all 0.4s ease;cursor:pointer}
+.gallery-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-glow);border-color:rgba(99,102,241,0.3)}
+.image-wrapper{width:100%;aspect-ratio:16/10;background:var(--bg-card-hover);overflow:hidden;position:relative}
+.image-wrapper img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;display:block}
+.image-wrapper video{width:100%;height:100%;object-fit:cover;background:#000;display:block}
+.gallery-card:hover .image-wrapper img{transform:scale(1.05)}
+.placeholder-img{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-muted);gap:0.5rem;font-size:0.85rem;text-align:center;padding:1rem}
+.placeholder-img i{font-size:2rem;color:var(--primary)}
+.card-info{padding:1.2rem}
+.card-info h4{font-size:1rem;font-weight:600;margin-bottom:0.3rem}
+.card-info p{color:var(--text-muted);font-size:0.85rem}
+.education{background:var(--bg-dark)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;max-width:820px;margin:0 auto}
+.edu-card{padding:2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;display:flex;gap:1.5rem;align-items:flex-start;transition:all 0.3s ease}
+.edu-card:hover{border-color:rgba(99,102,241,0.3);transform:translateY(-3px)}
+.edu-icon{width:50px;height:50px;border-radius:12px;background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.edu-card h3{font-size:1.05rem;font-weight:600;margin-bottom:0.3rem}
+.edu-school{color:var(--accent);font-size:0.9rem;margin-bottom:0.3rem}
+.edu-year{color:var(--text-muted);font-size:0.85rem}
+.interests{background:var(--bg-section)}
+.interests-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;max-width:950px;margin:0 auto}
+.interest-item{padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;text-align:center;transition:all 0.3s ease}
+.interest-item:hover{border-color:rgba(99,102,241,0.3);transform:translateY(-4px);box-shadow:var(--shadow-glow)}
+.interest-emoji{font-size:2.5rem;margin-bottom:0.8rem;display:block}
+.interest-item h4{font-size:0.95rem;font-weight:600;margin-bottom:0.3rem}
+.interest-item p{font-size:0.8rem;color:var(--text-muted)}
+.contact{background:var(--bg-dark);text-align:center}
+.contact-card{max-width:650px;margin:0 auto;padding:3rem;background:var(--bg-card);border:1px solid var(--border);border-radius:24px;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-1)}
+.contact-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:1rem}
+.contact-card>p{color:var(--text-secondary);margin-bottom:2rem}
+.contact-links{display:flex;flex-direction:column;gap:1rem;align-items:center}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.5rem;background:rgba(99,102,241,0.05);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text-primary);transition:all 0.3s ease;width:100%;max-width:400px}
+.contact-link:hover{border-color:var(--primary);background:rgba(99,102,241,0.1);transform:translateX(4px)}
+.contact-link i{width:42px;height:42px;border-radius:10px;background:var(--gradient-1);display:flex;align-items:center;justify-content:center;color:white;font-size:1rem;flex-shrink:0}
+.link-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+.link-value{font-weight:600}
+footer{padding:2rem;text-align:center;color:var(--text-muted);font-size:0.85rem;border-top:1px solid var(--border)}
+.heart{color:#ef4444}
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.8s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;display:none;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px)}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90%;max-height:90%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.lightbox-close{position:absolute;top:2rem;right:2rem;color:white;font-size:2rem;cursor:pointer;width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.1);transition:background 0.3s}
+.lightbox-close:hover{background:rgba(255,255,255,0.2)}
+@media(max-width:768px){
+.nav-links{position:fixed;top:0;right:-100%;width:75%;height:100vh;background:var(--bg-card);flex-direction:column;justify-content:center;align-items:center;gap:2rem;transition:right 0.4s ease;border-left:1px solid var(--border);padding:2rem}
+.nav-links.open{right:0}
+.nav-toggle{display:flex;z-index:1001}
+.about-grid{grid-template-columns:1fr;gap:2rem}
+.about-image-area{order:-1}
+.about-visual{max-width:280px;aspect-ratio:3/4}
+.about-info{grid-template-columns:1fr}
+.hero-stats{gap:1.2rem}
+.stat-number{font-size:1.5rem}
+.timeline::before{left:15px}
+.timeline-item{padding-left:50px}
+.timeline-dot{left:7px}
+.timeline-item.current .timeline-dot{left:5px}
+.edu-grid{grid-template-columns:1fr}
+.gallery-grid,.skills-grid,.achievements-grid{grid-template-columns:1fr}
+.hero h1{font-size:2.2rem}
+}
+@media(max-width:480px){section{padding:4rem 1rem}.interests-grid{grid-template-columns:repeat(2,1fr)}.contact-card{padding:2rem 1.2rem}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+<div class="nav-container">
+<a href="#hero" class="nav-logo">PS.</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#about">O mnie</a></li>
+<li><a href="#skills">Kompetencje</a></li>
+<li><a href="#achievements">Osiągnięcia</a></li>
+<li><a href="#experience">Doświadczenie</a></li>
+<li><a href="#gallery">Galeria</a></li>
+<li><a href="#education">Edukacja</a></li>
+<li><a href="#contact">Kontakt</a></li>
+</ul>
+<div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+<section class="hero" id="hero">
+<div class="hero-bg"></div>
+<div class="hero-grid"></div>
+<div class="hero-content">
+<div class="hero-photo-wrapper">
+<img src="images/profil.jpg" alt="Patryk Starzycki" class="hero-photo">
+</div>
+<div class="hero-badge"><span class="dot"></span>Aktualnie: TCL Electronics — Merchandiser</div>
+<h1>Patryk <span class="gradient-text">Starzycki</span></h1>
+<p class="hero-subtitle">Lider z ponad 13-letnim doświadczeniem w sprzedaży, zarządzaniu i egzekucji standardów. Budowałem wyniki w Media Expert, Jaguar Land Rover, LG Electronics i TCL.</p>
+<div class="hero-cta">
+<a href="#experience" class="btn btn-primary"><i class="fas fa-briefcase"></i> Moje doświadczenie</a>
+<a href="#contact" class="btn btn-outline"><i class="fas fa-phone"></i> Kontakt</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><div class="stat-number">13+</div><div class="stat-label">Lat doświadczenia</div></div>
+<div class="stat"><div class="stat-number">22 mln</div><div class="stat-label">Rekord sprzedaży</div></div>
+<div class="stat"><div class="stat-number">110%</div><div class="stat-label">Realizacja planu</div></div>
+<div class="stat"><div class="stat-number">32</div><div class="stat-label">Pokolenia historii</div></div>
+</div>
+</div>
+</section>
+<section class="about" id="about">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-user"></i> Poznaj mnie</div>
+<h2 class="section-title">O mnie</h2>
+</div>
+<div class="about-grid">
+<div class="about-text reveal">
+<p>Łączę <span class="highlight">sprzedaż, relacje, zarządzanie i egzekucję</span>. Dobrze odnajduję się zarówno w środowisku retail, jak i w nowych projektach, gdzie tempo działania i jakość wdrażanych procesów mają realny wpływ na wynik organizacji.</p>
+<p>Mam doświadczenie w pracy z zespołem i jestem postrzegany jako osoba uważna, doceniająca ludzi, a jednocześnie potrafiąca wprowadzać rozwiązania, które porządkują codzienne funkcjonowanie firmy. W pracy z klientem zawsze stawiam na <span class="highlight">profesjonalizm, odpowiedzialność i konsekwencję</span>.</p>
+<p>Prowadzenie własnych spółek rozwinęło we mnie umiejętność myślenia poza schematami i radzenia sobie z niestandardowymi sytuacjami. Najlepiej odnajduję się tam, gdzie liczy się inicjatywa, szybka adaptacja i dowożenie wyniku.</p>
+<div class="ancestry-box">
+<div class="ancestry-label">🌳 Korzenie i tożsamość</div>
+<p>Poza życiem zawodowym dużą wagę przywiązuję do historii, tożsamości i korzeni. Znam historię swojej rodziny do <span class="ancestry-highlight">32. pokolenia wstecz</span>, a jednym z moich przodków jest <span class="ancestry-highlight">brat Ścibora ze Ściborza</span> — jednej z najważniejszych postaci rycerskich średniowiecznej Polski i Węgier. To uczy mnie myślenia długofalowego, szacunku do ciągłości i budowania rzeczy, które mają trwałą wartość.</p>
+</div>
+<div class="about-info">
+<div class="info-item"><div class="label">Lokalizacja</div><div class="value">📍 Zagórze, Małopolska</div></div>
+<div class="info-item"><div class="label">Język</div><div class="value">🇬🇧 Angielski B1</div></div>
+<div class="info-item"><div class="label">Mobilność</div><div class="value">🚗 Prawo jazdy + własne auto</div></div>
+<div class="info-item"><div class="label">Korzenie</div><div class="value">🌳 32 pokolenia wstecz</div></div>
+</div>
+</div>
+<div class="about-image-area reveal">
+<div class="about-visual">
+<img src="images/about-photo.jpg" alt="Patryk Starzycki">
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="skills" id="skills">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-star"></i> Umiejętności</div>
+<h2 class="section-title">Kluczowe kompetencje</h2>
+<p class="section-desc">Zbudowane na styku sprzedaży, przywództwa, merchandisingu i przedsiębiorczości.</p>
+</div>
+<div class="skills-grid">
+<div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-users-cog"></i></div><h3>Zarządzanie zespołem</h3><p>Budowanie, rozwijanie i stabilizowanie zespołów sprzedażowych. Praca z CRM i nowoczesnymi metodami zarządzania.</p></div>
+<div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-bullseye"></i></div><h3>Praca z KPI i celami SMART</h3><p>Wyznaczanie jasnych celów, monitorowanie wyników i wdrażanie działań zwiększających efektywność sprzedaży.</p></div>
+<div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-store"></i></div><h3>Merchandising i ekspozycja</h3><p>Dbanie o widoczność produktu, jakość ekspozycji i kompletność materiałów POS w punktach sprzedaży.</p></div>
+<div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-handshake"></i></div><h3>Relacje z klientami</h3><p>Budowanie trwałych relacji z klientami, pracownikami sklepów i kadrą zarządzającą. Obsługa premium.</p></div>
+<div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-chart-line"></i></div><h3>Analiza wyników</h3><p>Identyfikowanie rezerw wzrostu, praca na danych sprzedażowych i podejmowanie trafnych decyzji operacyjnych.</p></div>
+<div class="skill-card reveal"><div class="skill-icon"><i class="fas fa-lightbulb"></i></div><h3>Myślenie poza schematem</h3><p>Doświadczenie przedsiębiorcze i umiejętność działania w niestandardowych, dynamicznych sytuacjach.</p></div>
+</div>
+</div>
+</section>
+<section class="achievements" id="achievements">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-trophy"></i> Wyniki</div>
+<h2 class="section-title">Najważniejsze osiągnięcia</h2>
+<p class="section-desc">Konkretne liczby i efekty, które najlepiej opisują mój styl pracy i skuteczność.</p>
+</div>
+<div class="achievements-grid">
+<div class="achievement-card reveal"><div class="achievement-number">28 szt.</div><div class="achievement-title">Samochodów w 1 miesiącu</div><p>Jaguar Land Rover — przy średnim planie wynoszącym 7 sztuk miesięcznie.</p></div>
+<div class="achievement-card reveal"><div class="achievement-number">22 mln zł</div><div class="achievement-title">Wartości sprzedaży</div><p>Łączna wartość sprzedaży wypracowana w segmencie samochodów premium.</p></div>
+<div class="achievement-card reveal"><div class="achievement-number">110%+</div><div class="achievement-title">Realizacji planu sklepu</div><p>Wynik w kluczowych miesiącach handlowych jako kierownik w Media Expert.</p></div>
+<div class="achievement-card reveal"><div class="achievement-number">+12%</div><div class="achievement-title">Wzrost miesięcznej sprzedaży</div><p>Podniesienie średniej miesięcznej wartości sprzedaży dzięki pracy na procesie i zespole.</p></div>
+<div class="achievement-card reveal"><div class="achievement-number">2</div><div class="achievement-title">Wyszkolonych kierowników</div><p>Rozwinięcie i przygotowanie dwóch osób do samodzielnych ról kierowniczych.</p></div>
+<div class="achievement-card reveal"><div class="achievement-number">🏆</div><div class="achievement-title">Best Practice — LG Electronics</div><p>Wygrana w ogólnopolskim konkursie LG + 100 sztuk AGD po roku pracy.</p></div>
+</div>
+</div>
+</section>
+<section class="experience" id="experience">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-road"></i> Ścieżka kariery</div>
+<h2 class="section-title">Doświadczenie zawodowe</h2>
+<p class="section-desc">Od doradcy klienta do ról liderskich i współpracy z globalnymi markami.</p>
+</div>
+<div class="timeline">
+<div class="timeline-item current reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">04.2026 — obecnie</div>
+<div class="timeline-card">
+<div class="company">TCL Electronics</div>
+<h3>Merchandiser</h3>
+<p>Dbam o relacje z pracownikami i kierownikami na podległych halach sprzedaży. Odpowiadam za prawidłową ekspozycję sprzętu TCL oraz kompletność materiałów POS przy każdym urządzeniu.</p>
+<ul class="results"><li>Utrzymywanie standardów ekspozycji marki TCL w punktach sprzedaży</li><li>Budowanie bieżących relacji z zespołami i kierownikami sklepów</li><li>Kontrola jakości i kompletności materiałów POS</li></ul>
+<div class="tag-list"><span class="tag">Aktualne stanowisko</span><span class="tag">TCL Electronics</span><span class="tag">Merchandising</span><span class="tag">POS</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">09.2024 — 03.2026</div>
+<div class="timeline-card">
+<div class="company">Terg S.A. / Media Expert</div>
+<h3>Dyrektor / Kierownik Elektromarketu</h3>
+<p>Zarządzanie całą jednostką handlową — od wyznaczania celów i pracy z KPI, przez budowanie i stabilizację zespołu, po wdrażanie procedur operacyjnych.</p>
+<ul class="results"><li>Plan sklepu w listopadzie i grudniu zrealizowany na poziomie ponad 110%</li><li>Wzrost średniej miesięcznej wartości sprzedaży o 12%</li><li>Ustabilizowanie struktury zatrudnienia i wyszkolenie 2 kierowników</li></ul>
+<div class="tag-list"><span class="tag">Zarządzanie</span><span class="tag">KPI</span><span class="tag">Rekrutacja</span><span class="tag">Retail</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">08.2023 — 08.2024</div>
+<div class="timeline-card">
+<div class="company">Terg S.A. / Media Expert</div>
+<h3>Kierownik Sali</h3>
+<p>Budowanie zespołu sprzedażowego, prowadzenie rekrutacji, wdrażanie procedur, wyznaczanie celów i rozliczanie z ich wykonania.</p>
+<div class="tag-list"><span class="tag">Team building</span><span class="tag">Szkolenia</span><span class="tag">Procedury</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">12.2021 — 08.2022</div>
+<div class="timeline-card">
+<div class="company">British Automotive Silesia / Jaguar Land Rover</div>
+<h3>Specjalista ds. sprzedaży samochodów nowych</h3>
+<p>Obsługa klientów segmentu premium, budowanie relacji długoterminowych, przygotowywanie ofert, aktywne pozyskiwanie nowych klientów.</p>
+<ul class="results"><li>28 samochodów sprzedanych w jednym miesiącu przy planie 7 sztuk</li><li>Łączna wartość sprzedaży: 22 000 000 zł</li></ul>
+<div class="tag-list"><span class="tag">Sprzedaż premium</span><span class="tag">Jaguar</span><span class="tag">Land Rover</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">07.2020 — 11.2021</div>
+<div class="timeline-card">
+<div class="company">Terg S.A. / Media Expert</div>
+<h3>Starszy Doradca Klienta → Specjalista ds. sprzedaży</h3>
+<p>Obsługa klientów na dziale AGD, dbanie o ekspozycję. W 08.2021 awansowałem po assessmencie kierowniczym.</p>
+<div class="tag-list"><span class="tag">AGD</span><span class="tag">Assessment</span><span class="tag">Awans</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">2019 — obecnie</div>
+<div class="timeline-card">
+<div class="company">Własna działalność</div>
+<h3>Założyciel FUND IT Sp. z o.o.</h3>
+<p>Założenie i rozwijanie spółki w sektorze crowdfundingu. Strategia, promocja i budowanie fundamentów biznesowych.</p>
+<div class="tag-list"><span class="tag">Startup</span><span class="tag">Crowdfunding</span><span class="tag">Przedsiębiorczość</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">01.2016 — 06.2020 / 09.2022 — 03.2023</div>
+<div class="timeline-card">
+<div class="company">LG Electronics</div>
+<h3>Ambasador Marki / Mentor / Promotor AGD</h3>
+<p>Szkolenie pracowników, ekspozycja, aktywna sprzedaż, raportowanie wyników i działań konkurencji.</p>
+<ul class="results"><li>Wygrana w konkursie Best Practice LG</li><li>100 sztuk AGD po roku pracy</li></ul>
+<div class="tag-list"><span class="tag">LG</span><span class="tag">Mentoring</span><span class="tag">AGD</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">2015 — 2016</div>
+<div class="timeline-card">
+<div class="company">Media Markt</div>
+<h3>Doradca Klienta — dział AGD</h3>
+<p>Obsługa klienta, stany magazynowe, system rezerwacji i faktur.</p>
+<div class="tag-list"><span class="tag">Retail</span><span class="tag">AGD</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">2014 — 2015</div>
+<div class="timeline-card">
+<div class="company">Euro-net / Euro RTV AGD</div>
+<h3>Doradca–sprzedawca</h3>
+<p>Aktywna obsługa klienta, ekspozycja sklepowa, magazyn.</p>
+<div class="tag-list"><span class="tag">Sprzedaż</span><span class="tag">Retail</span></div>
+</div>
+</div>
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-date">2013 — 2014</div>
+<div class="timeline-card">
+<div class="company">Provident Polska</div>
+<h3>Doradca</h3>
+<p>Oferty dla stałych klientów, pozyskiwanie nowych, praca terenowa.</p>
+<div class="tag-list"><span class="tag">Finanse</span><span class="tag">Praca terenowa</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="gallery" id="gallery">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-images"></i> Zdjęcia</div>
+<h2 class="section-title">Galeria</h2>
+<p class="section-desc">Momenty z mojej ścieżki zawodowej i osobistej.</p>
+</div>
+<div class="gallery-section-label reveal">TCL Electronics — aktualna praca</div>
+<div class="gallery-grid">
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/tcl-1.jpg" alt="TCL Electronics"></div><div class="card-info"><h4>TCL Electronics</h4><p>Ekspozycja produktów</p></div></div>
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/tcl-2.jpg" alt="TCL Electronics"></div><div class="card-info"><h4>TCL Electronics</h4><p>Materiały POS</p></div></div>
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/tcl-3.jpg" alt="TCL Electronics"></div><div class="card-info"><h4>TCL Electronics</h4><p>Relacje z zespołami</p></div></div>
+</div>
+<div class="gallery-section-label reveal">Media Expert</div>
+<div class="gallery-grid">
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/me-1.jpg" alt="Media Expert"></div><div class="card-info"><h4>Media Expert</h4><p>Rola kierownicza</p></div></div>
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/me-2.jpg" alt="Media Expert"></div><div class="card-info"><h4>Media Expert</h4><p>Praca z zespołem</p></div></div>
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/me-3.jpg" alt="Media Expert"></div><div class="card-info"><h4>Media Expert</h4><p>Realizacja planu</p></div></div>
+</div>
+<div class="gallery-section-label reveal">Jaguar Land Rover</div>
+<div class="gallery-grid">
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/jlr-1.jpg" alt="Jaguar Land Rover"></div><div class="card-info"><h4>Jaguar Land Rover</h4><p>Sprzedaż premium</p></div></div>
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/jlr-2.jpg" alt="Jaguar Land Rover"></div><div class="card-info"><h4>Jaguar Land Rover</h4><p>28 szt. w 1 miesiącu</p></div></div>
+<div class="gallery-card reveal"><div class="image-wrapper"><video controls playsinline preload="metadata"><source src="images/jaguar-f-type.mp4" type="video/mp4"></video></div><div class="card-info"><h4>Jaguar F-Type</h4><p>Film z pracy przy marce Jaguar</p></div></div>
+</div>
+<div class="gallery-section-label reveal">LG Electronics</div>
+<div class="gallery-grid">
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/lg-1.jpg" alt="LG Electronics"></div><div class="card-info"><h4>LG Electronics</h4><p>Ambasador Marki</p></div></div>
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/lg-2.jpg" alt="LG Electronics"></div><div class="card-info"><h4>LG Electronics</h4><p>Szkolenia i ekspozycja</p></div></div>
+</div>
+<div class="gallery-section-label reveal">Korzenie i tożsamość</div>
+<div class="gallery-grid">
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/drzewo-genealogiczne.jpg" alt="Drzewo genealogiczne"></div><div class="card-info"><h4>Drzewo genealogiczne</h4><p>32 pokolenia wstecz</p></div></div>
+<div class="gallery-card reveal" onclick="openLightbox(this)"><div class="image-wrapper"><img src="images/scibor.jpg" alt="Scibor ze Sciborza"></div><div class="card-info"><h4>Ścibor ze Ściborza</h4><p>Jeden z przodków</p></div></div>
+</div>
+</div>
+</section>
+<section class="education" id="education">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-graduation-cap"></i> Edukacja</div>
+<h2 class="section-title">Wykształcenie</h2>
+</div>
+<div class="edu-grid">
+<div class="edu-card reveal"><div class="edu-icon">🎓</div><div><h3>Wydział Leśny</h3><div class="edu-school">Uniwersytet Rolniczy im. Hugona Kołłątaja w Krakowie</div><div class="edu-year">2012 — studia rozpoczęte</div></div></div>
+<div class="edu-card reveal"><div class="edu-icon">🌲</div><div><h3>Technikum Leśne</h3><div class="edu-school">Technikum Leśne w Tułowicach</div><div class="edu-year">2008 — 2012 | ukończone ze zdaną maturą</div></div></div>
+</div>
+</div>
+</section>
+<section class="interests" id="interests">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-heart"></i> Po godzinach</div>
+<h2 class="section-title">Zainteresowania</h2>
+</div>
+<div class="interests-grid">
+<div class="interest-item reveal"><span class="interest-emoji">⚽</span><h4>Polska piłka nożna</h4><p>Oglądanie i analiza</p></div>
+<div class="interest-item reveal"><span class="interest-emoji">📚</span><h4>Czytanie książek</h4><p>Rozwój i wiedza</p></div>
+<div class="interest-item reveal"><span class="interest-emoji">🥗</span><h4>Zdrowe odżywianie</h4><p>Świadomy styl życia</p></div>
+<div class="interest-item reveal"><span class="interest-emoji">💪</span><h4>Sporty siłowe</h4><p>Trening i wiedza</p></div>
+<div class="interest-item reveal"><span class="interest-emoji">🏎️</span><h4>Formuła 1</h4><p>Oglądanie i analiza</p></div>
+<div class="interest-item reveal"><span class="interest-emoji">🌳</span><h4>Genealogia</h4><p>Historia rodziny i korzenie</p></div>
+</div>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="section-container">
+<div class="section-header reveal">
+<div class="section-label"><i class="fas fa-paper-plane"></i> Kontakt</div>
+<h2 class="section-title">Porozmawiajmy</h2>
+</div>
+<div class="contact-card reveal">
+<h3>Szukasz skutecznego człowieka?</h3>
+<p>Chętnie porozmawiam o nowej roli, projekcie lub współpracy, gdzie liczy się wynik, odpowiedzialność i dobra organizacja pracy.</p>
+<div class="contact-links">
+<a href="tel:+48661566209" class="contact-link"><i class="fas fa-phone"></i><div><div class="link-label">Telefon</div><div class="link-value">+48 661 566 209</div></div></a>
+<a href="mailto:starzycki.patryk@gmail.com" class="contact-link"><i class="fas fa-envelope"></i><div><div class="link-label">Email</div><div class="link-value">starzycki.patryk@gmail.com</div></div></a>
+<a href="https://www.linkedin.com/in/patryk-starzycki-08655a182/" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fab fa-linkedin-in"></i><div><div class="link-label">LinkedIn</div><div class="link-value">Patryk Starzycki</div></div></a>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<p>© <span id="year"></span> Patryk Starzycki. Zaprojektowane z <span class="heart">❤</span> i ambicją.</p>
+</footer>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></div>
+<img src="" alt="Podgląd" id="lightboxImg">
+</div>
+<script>
+var navbar=document.getElementById('navbar');
+window.addEventListener('scroll',function(){navbar.classList.toggle('scrolled',window.scrollY>50)});
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(function(link){link.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
+var revealEls=document.querySelectorAll('.reveal');
+function checkReveal(){var wh=window.innerHeight;revealEls.forEach(function(el){if(el.getBoundingClientRect().top<wh-80){el.classList.add('active')}})}
+window.addEventListener('scroll',checkReveal);
+window.addEventListener('load',checkReveal);
+var sections=document.querySelectorAll('section[id]');
+var navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',function(){var current='';sections.forEach(function(s){if(window.scrollY>=s.offsetTop-200)current=s.id});navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+current)})});
+function openLightbox(card){var img=card.querySelector('img');if(!img)return;document.getElementById('lightboxImg').src=img.src;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var target=document.querySelector(a.getAttribute('href'));if(target)target.scrollIntoView({behavior:'smooth',block:'start'})})});
+function animateCounters(){document.querySelectorAll('.stat-number').forEach(function(counter){var original=counter.textContent;var num=parseInt(original);var suffix=original.replace(/[0-9]/g,'');if(isNaN(num))return;var cur=0;var inc=num/50;var t=setInterval(function(){cur+=inc;if(cur>=num){counter.textContent=original;clearInterval(t)}else{counter.textContent=Math.ceil(cur)+suffix}},35)})}
+var heroObs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting){setTimeout(animateCounters,800);heroObs.disconnect()}});
+heroObs.observe(document.querySelector('.hero'));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
