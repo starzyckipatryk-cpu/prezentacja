@@ -6371,6 +6371,24 @@ td, th {
         color: var(--text-muted);
     }
 
+    .ideas-teaser {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 12px;
+        background: rgba(99, 102, 241, 0.05);
+        border: 1px dashed rgba(99, 102, 241, 0.2);
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .ideas-teaser i {
+        color: var(--primary-light);
+        font-size: 1.3rem;
+    }
+
     @media (max-width: 768px) {
         .ideas-card {
             padding: 1.3rem;
@@ -6427,18 +6445,19 @@ td, th {
                     <div class="section-label"><i class="fas fa-lightbulb"></i> Własne pomysły</div>
                     <h2 class="section-title">Propozycje rozwojowe</h2>
                     <p class="section-desc">
-                        Dodatkowa część tej wersji prezentacji — dwa konkretne pomysły, które mogą wspierać
-                        wizerunek, sprzedaż i codzienną pracę zespołów handlowych.
+                        Dodatkowa część tej prezentacji — dwa konkretne pomysły, które mogą wspierać
+                        wizerunek, sprzedaż i codzienną pracę zespołów.
                     </p>
                 </div>
 
                 <div class="ideas-top-note reveal active">
-                    To jest wersja prezentacji przygotowana specjalnie pod wewnętrzny kontekst i rozmowę z przełożonym.
-                    Po usunięciu bloku „TRYB SZEF” strona wraca do standardowej wersji.
+                    To jest wersja prezentacji przygotowana specjalnie na nasze spotkanie, 
+                    zawierająca autorskie propozycje wdrożeń.
                 </div>
 
                 <div class="ideas-grid">
 
+                    <!-- KARTA 1: MARAT (z plikiem PDF) -->
                     <div class="ideas-card reveal active">
                         <div class="ideas-card-head">
                             <div class="ideas-icon"><i class="fas fa-medal"></i></div>
@@ -6481,12 +6500,9 @@ td, th {
                                 <i class="fas fa-download"></i> Pobierz PDF
                             </a>
                         </div>
-
-                        <div class="ideas-mini-note">
-                            Wgraj plik do repozytorium pod nazwą: <strong>marat-harasimowicz.pdf</strong>
-                        </div>
                     </div>
 
+                    <!-- KARTA 2: TABLICA (tylko koncept) -->
                     <div class="ideas-card reveal active">
                         <div class="ideas-card-head">
                             <div class="ideas-icon"><i class="fas fa-file-lines"></i></div>
@@ -6513,26 +6529,12 @@ td, th {
                             <span class="ideas-tag">A4</span>
                         </div>
 
-                        <div class="ideas-pdf-wrap">
-                            <iframe
-                                class="ideas-pdf"
-                                src="tablica-sprzedazowa-a4.pdf#toolbar=0&navpanes=0&scrollbar=1"
-                                title="Tablica sprzedażowa A4">
-                            </iframe>
+                        <!-- Zamiast PDF-a, wstawka o omówieniu tego na żywo -->
+                        <div class="ideas-teaser">
+                            <i class="fas fa-comment-dots"></i>
+                            <div>Szczegóły tej koncepcji oraz propozycję mechaniki wdrożenia chętnie omówię na żywo podczas naszego spotkania.</div>
                         </div>
 
-                        <div class="ideas-actions">
-                            <a class="ideas-btn" href="tablica-sprzedazowa-a4.pdf" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> Otwórz PDF
-                            </a>
-                            <a class="ideas-btn alt" href="tablica-sprzedazowa-a4.pdf" download>
-                                <i class="fas fa-download"></i> Pobierz PDF
-                            </a>
-                        </div>
-
-                        <div class="ideas-mini-note">
-                            Wgraj plik do repozytorium pod nazwą: <strong>tablica-sprzedazowa-a4.pdf</strong>
-                        </div>
                     </div>
 
                 </div>
